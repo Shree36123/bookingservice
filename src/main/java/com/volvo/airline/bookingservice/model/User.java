@@ -1,10 +1,16 @@
 package com.volvo.airline.bookingservice.model;
 
-import jakarta.persistence.*;
-import lombok.Data;
+import com.volvo.airline.bookingservice.model.enums.Gender;
+import jakarta.persistence.Entity;
+import lombok.*;
 
 @Entity
-@Data
+@Getter
+@Setter
+@ToString
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class User extends BaseEntity {
     private String firstName;
     private String lastName;
