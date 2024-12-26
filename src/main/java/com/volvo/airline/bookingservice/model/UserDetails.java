@@ -11,7 +11,7 @@ import lombok.*;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class User extends BaseEntity {
+public class UserDetails extends BaseEntity {
     private String firstName;
     private String lastName;
     private Long phoneNumber;

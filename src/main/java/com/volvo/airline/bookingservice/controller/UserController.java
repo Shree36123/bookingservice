@@ -1,18 +1,16 @@
 package com.volvo.airline.bookingservice.controller;
 
-import com.volvo.airline.bookingservice.model.User;
+import com.volvo.airline.bookingservice.model.UserDetails;
+import com.volvo.airline.bookingservice.model.dao.UserDAO;
 import com.volvo.airline.bookingservice.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("user/api/")
+@RequestMapping("/api/user")
 public class UserController {
     private final UserService userService;
 
@@ -20,22 +18,22 @@ public class UserController {
         this.userService = userService;
     }
 
-    @RequestMapping("get")
-    public ResponseEntity<List<User>> getUser() {
+    @GetMapping("get")
+    public ResponseEntity<List<UserDetails>> getUser() {
         return new ResponseEntity<>(userService.getUser(), HttpStatus.OK);
     }
 
-    @RequestMapping("save")
-    public User saveUser(@RequestBody User user) {
+    @PostMapping("/save")
+    public UserDetails saveUser(@RequestBody UserDAO user) {
         return userService.createUser(user);
     }
 
-    @RequestMapping("update")
-    public User updateUser(@RequestBody User user) {
-        return userService.updateUser(user);
+    @PutMapping("/update")
+    public ResponseEntity<UserDetails> updateUser(@RequestBody UserDAO user) {
+        return new ResponseEntity<>(userService.updateUser(user), HttpStatus.OK);
     }
 
-    @RequestMapping("delete")
+    @DeleteMapping("/delete")
     public String deleteUser(@RequestParam("id") Long id) {
         return userService.deleteUser(id);
     }

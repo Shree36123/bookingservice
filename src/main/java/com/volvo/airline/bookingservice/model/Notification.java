@@ -10,14 +10,11 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Notification extends BaseEntity {
     @ToString.Exclude
     @ManyToOne(fetch = jakarta.persistence.FetchType.LAZY, cascade = jakarta.persistence.CascadeType.ALL)
     @JoinColumn(name = "user_id")
-    private User user;
+    private UserDetails user;
     @ManyToOne
     @JoinColumn(name = "booking_record_id")
     private BookingRecord bookingRecord;
