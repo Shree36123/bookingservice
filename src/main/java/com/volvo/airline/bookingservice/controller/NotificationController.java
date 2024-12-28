@@ -19,18 +19,18 @@ public class NotificationController {
     }
 
     @GetMapping("get")
-    public ResponseEntity<List<Notification>> getNotifications() {
+    public ResponseEntity<List<NotificationDAO>> getNotifications() {
         return new ResponseEntity<>(notificationService.getNotification(), HttpStatus.OK);
     }
 
     @PostMapping("save")
-    public Notification saveNotification(@RequestBody NotificationDAO notification) {
-        return notificationService.addNotification(notification);
+    public ResponseEntity<NotificationDAO> saveNotification(@RequestBody NotificationDAO notification) {
+        return new ResponseEntity<>(notificationService.addNotification(notification), HttpStatus.CREATED);
     }
 
     @PutMapping("update")
-    public Notification updateNotification(@RequestBody NotificationDAO notification) {
-        return notificationService.updateNotification(notification);
+    public ResponseEntity<NotificationDAO> updateNotification(@RequestBody NotificationDAO notification) {
+        return new ResponseEntity<>(notificationService.updateNotification(notification), HttpStatus.CREATED);
     }
 
     @DeleteMapping("delete")
