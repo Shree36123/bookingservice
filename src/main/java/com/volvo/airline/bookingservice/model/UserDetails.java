@@ -8,7 +8,6 @@ import lombok.*;
 @Getter
 @Setter
 @ToString
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class UserDetails extends BaseEntity {
