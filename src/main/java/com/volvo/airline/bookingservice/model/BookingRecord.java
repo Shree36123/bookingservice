@@ -28,7 +28,7 @@ public class BookingRecord extends BaseEntity {
     private Fare fare;
     @ManyToOne
     @JoinColumn(name = "flight_number")
-    private String flightNumber;
+    private Flight flight;
     private LocalDate flightDate;
     private LocalTime flightTime;
 }

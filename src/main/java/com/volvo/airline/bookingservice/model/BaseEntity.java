@@ -8,7 +8,6 @@ import java.time.LocalDateTime;
 @MappedSuperclass
 @Getter
 @Setter
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class BaseEntity {
