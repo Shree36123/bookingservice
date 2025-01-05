@@ -17,5 +17,5 @@ import java.time.LocalDateTime;
 public class Payment extends BaseEntity {
     private PaymentType paymentType;
     private PaymentStatus paymentStatus;
-    private LocalDateTime transaction;
+    private LocalDateTime transactionDate;
 }
